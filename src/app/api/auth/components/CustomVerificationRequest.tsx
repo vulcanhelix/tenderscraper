@@ -1,16 +1,7 @@
 import { Resend } from 'resend';
 
-interface CustomSendVerificationRequestParams {
-  identifier: string;
-  url: string;
-  provider: {
-    server: string | { host: string; port: number; auth: { user: string; pass: string } };
-    from: string;
-  };
-}
-
 export async function CustomSendVerificationRequest(
-  { identifier, url, provider }: CustomSendVerificationRequestParams,
+  { identifier, url }: { identifier: string; url: string },
   resend: Resend
 ) {
   const { host } = new URL(url);
